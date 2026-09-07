@@ -269,7 +269,24 @@ svg {
 }
 
 .project .summary {
-  margin: 0 0 1.25rem;
+  margin: 0 0 0.85rem;
+}
+
+.live-link {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+}
+
+.live-link a {
+  font-weight: 600;
+  color: var(--sea-deep);
+}
+
+.placeholder-note {
+  margin: 0 0 1.15rem;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
 }
 
 .arch-label,

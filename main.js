@@ -18,13 +18,34 @@
     const kicker = el("div", "project-kicker");
     kicker.append(el("span", null, `0${index + 1}`.slice(-2)));
     if (project.testing) {
-      const badge = el("span", "test-badge", project.testing.label);
-      kicker.append(badge);
+      kicker.append(el("span", "test-badge", project.testing.label));
     }
     copy.append(kicker);
     copy.append(el("h3", null, project.name));
     copy.append(el("p", "tagline", project.tagline));
     copy.append(el("p", "summary", project.summary));
+
+    if (project.liveUrl) {
+      const live = el("p", "live-link");
+      const anchor = document.createElement("a");
+      anchor.href = project.liveUrl;
+      anchor.target = "_blank";
+      anchor.rel = "noopener noreferrer";
+      anchor.textContent = project.liveUrl.replace(/^https?:\/\//, "").replace(/\/$/, "");
+      live.append(document.createTextNode("Live: "));
+      live.append(anchor);
+      copy.append(live);
+    }
+
+    if (project.placeholderPath) {
+      copy.append(
+        el(
+          "p",
+          "placeholder-note",
+          `Screenshot path (replaceable): ${project.placeholderPath}`
+        )
+      );
+    }
 
     copy.append(el("p", "arch-label", "Architecture"));
     const arch = el("ul", "architecture");
@@ -79,7 +100,6 @@
 
   document.querySelectorAll(".reveal").forEach((node) => observer.observe(node));
 
-  // Subtle hero parallax
   const heroImg = document.querySelector(".hero-visual img");
   if (heroImg && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     window.addEventListener(
