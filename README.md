@@ -13,12 +13,8 @@ python3 -m http.server 8080
 
 ## Contents
 
-Public descriptions of selected projects: architecture patterns, tech stacks, and testing highlights. Private source repositories are intentionally not linked.
+Fourteen public project write-ups: architecture patterns, tech stacks, and testing highlights. Private source repositories are intentionally not linked.
 
-## Replaceable screenshots
+## Screenshots
 
-Drop PNG files over these paths (ideally about 1440x900):
-
-- `assets/projects/hermes-dashboard.png`
-- `assets/projects/jobhunter-admin.png`
-- `assets/projects/lab-automenu.png` (currently a local capture; replace anytime)
+Project visuals live under `assets/projects/` (PNG) or `assets/diagrams/` (SVG). Recent captures include Jobhunter Settings, Agile Way IT home, Restore Assistant and gexport TUIs, Content Intelligence overview, and Unlock Swedish study. Lab Automenu and AI Harness Operations use architecture diagrams instead of live UI captures.

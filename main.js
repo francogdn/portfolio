@@ -17,8 +17,8 @@
     const copy = el("div", "project-copy");
     const kicker = el("div", "project-kicker");
     kicker.append(el("span", null, `0${index + 1}`.slice(-2)));
-    if (project.testing) {
-      kicker.append(el("span", "test-badge", project.testing.label));
+    if (project.badge) {
+      kicker.append(el("span", "project-badge", project.badge));
     }
     copy.append(kicker);
     copy.append(el("h3", null, project.name));
