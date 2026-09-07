@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" role="img" aria-label="Auth gate → quiz engine → attempts">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#cfd9de"/>
+      <stop offset="100%" stop-color="#e7eef1"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#1f6f6a"/>
+    </marker>
+  </defs>
+  <rect width="720" height="280" fill="url(#bg)"/>
+  <text x="28" y="36" font-family="Georgia, serif" font-size="18" fill="#14212b">Auth gate → quiz engine → attempts</text>
+
+<line x1="180" y1="148" x2="230" y2="148" stroke="#1f6f6a" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="370" y1="148" x2="420" y2="148" stroke="#1f6f6a" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="370" y1="148" x2="600" y2="148" stroke="#1f6f6a" stroke-width="2" marker-end="url(#arrow)"/>
+<g>
+    <rect x="40" y="120" width="140" height="56" rx="6" fill="#14212b"/>
+    <text x="110.0" y="154" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#e7eef1">JWT auth gate</text>
+  </g>
+<g>
+    <rect x="230" y="120" width="140" height="56" rx="6" fill="#14212b"/>
+    <text x="300.0" y="154" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#e7eef1">Quiz engine</text>
+  </g>
+<g>
+    <rect x="420" y="120" width="150" height="56" rx="6" fill="#14212b"/>
+    <text x="495.0" y="154" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#e7eef1">SQLite attempts</text>
+  </g>
+<g>
+    <rect x="600" y="120" width="90" height="56" rx="6" fill="#14212b"/>
+    <text x="645.0" y="154" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#e7eef1">Learner UI</text>
+  </g>
+</svg>

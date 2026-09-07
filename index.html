@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Franco Godone — Portfolio</title>
+    <meta
+      name="description"
+      content="Selected software projects by Franco Godone — product systems, homelab tooling, and operator-focused apps."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Sora:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="#top">Franco Godone</a>
+        <a class="nav-link" href="#work">Selected work</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-label="Introduction">
+        <div class="hero-visual" aria-hidden="true">
+          <img
+            src="assets/projects/unlock-swedish-front.png"
+            alt=""
+            width="1600"
+            height="1000"
+          />
+        </div>
+        <div class="wrap">
+          <div class="hero-copy">
+            <h1 class="hero-brand">Franco Godone</h1>
+            <p class="hero-line">
+              Product systems and operator tools — from booking platforms to
+              homelab automation — with clear architecture and tested cores.
+            </p>
+            <a class="cta" href="#work">
+              View work
+              <svg viewBox="0 0 16 16" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M3 8h8.2L8.1 4.9l.9-.9L14 8l-5 4-.9-.9L11.2 8H3z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="work">
+        <div class="wrap">
+          <div class="section-intro reveal">
+            <h2>Selected work</h2>
+            <p>
+              Thirteen projects spanning learning products, finance tooling,
+              monitoring, and backup/restore workflows. Stack and architecture
+              are described at a high level; private repositories are not linked.
+            </p>
+          </div>
+          <div id="projects"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <span>© <span id="year"></span> Franco Godone</span>
+        <a href="https://github.com/francogdn">GitHub</a>
+      </div>
+    </footer>
+
+    <script src="data/projects.js"></script>
+    <script src="main.js"></script>
+    <script>
+      document.getElementById("year").textContent = String(new Date().getFullYear());
+    </script>
+  </body>
+</html>
