@@ -143,9 +143,9 @@ window.PORTFOLIO_PROJECTS = [
     id: "hermes-dashboard",
     name: "AI Harness Operations Dashboard",
     badge: "AI fleet ops",
-    tagline: "Health and activity dashboard for an 8-bot AI fleet run from Telegram.",
+    tagline: "Health and activity dashboard for my personal 8-bot AI fleet run from Telegram.",
     summary:
-      "Ops dashboard to check health status and current activities across the AI fleet. The fleet is eight bots, each fully controlled from Telegram chats. A collector posts redacted telemetry to an ingest API (the only database writer) while a React UI reads operational state.",
+      "Ops dashboard to check health status and current activities across my AI fleet. My fleet is eight bots, each fully controlled from Telegram chats. A collector posts redacted telemetry to an ingest API (the only database writer) while a React UI reads operational state.",
     architecture: [
       "Edge collector gathers allowlisted, redacted telemetry on a schedule",
       "API owns all writes; dashboard is read-only via REST",

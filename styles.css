@@ -83,23 +83,29 @@ svg {
 }
 
 .brand {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
-  letter-spacing: -0.02em;
-  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.92rem;
+  letter-spacing: 0.01em;
+  color: rgba(247, 250, 251, 0.88);
   text-decoration: none;
+  text-shadow: 0 1px 12px rgba(20, 33, 43, 0.45);
+}
+
+.brand:hover {
+  color: var(--foam);
 }
 
 .nav-link {
   font-size: 0.92rem;
   font-weight: 500;
-  color: var(--ink-soft);
+  color: rgba(247, 250, 251, 0.88);
   text-decoration: none;
+  text-shadow: 0 1px 10px rgba(20, 33, 43, 0.4);
 }
 
 .nav-link:hover {
-  color: var(--sea-deep);
+  color: var(--foam);
 }
 
 /* Hero: one composition, brand-first, full-bleed visual */
@@ -133,7 +139,8 @@ svg {
   inset: 0;
   background:
     linear-gradient(90deg, rgba(20, 33, 43, 0.78) 0%, rgba(20, 33, 43, 0.45) 42%, rgba(20, 33, 43, 0.2) 100%),
-    linear-gradient(0deg, rgba(20, 33, 43, 0.55) 0%, transparent 45%);
+    linear-gradient(0deg, rgba(20, 33, 43, 0.55) 0%, transparent 45%),
+    linear-gradient(180deg, rgba(20, 33, 43, 0.55) 0%, transparent 28%);
 }
 
 .hero-copy {
