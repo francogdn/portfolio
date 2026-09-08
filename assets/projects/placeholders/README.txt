@@ -7,4 +7,5 @@ assets/projects/gexport-tui.png
 assets/projects/content-intelligence.png
 assets/projects/unlock-swedish-front.png
 
-Hermes / AI Harness Operations and Lab Automenu use SVG diagrams under assets/diagrams/ instead of UI captures.
+Hermes / AI Harness Operations screenshot: assets/projects/hermes-dashboard.png
+Lab Automenu uses an SVG diagram under assets/diagrams/ instead of a UI capture.

@@ -157,9 +157,9 @@ window.PORTFOLIO_PROJECTS = [
         "API + UI tests: pytest for ingest/read surfaces; component and page tests on the React app.",
     },
     visual: {
-      type: "diagram",
-      src: "assets/diagrams/hermes.svg",
-      alt: "Architecture diagram for AI Harness Operations Dashboard",
+      type: "image",
+      src: "assets/projects/hermes-dashboard.png",
+      alt: "AI Harness Operations Dashboard fleet overview with healthy profile cards",
     },
   },
   {
