@@ -288,7 +288,7 @@ window.PORTFOLIO_PROJECTS = [
     visual: {
       type: "image",
       src: "assets/projects/unlock-swedish-front.png",
-      alt: "Unlock Swedish study screen with revealed translation and progress counts",
+      alt: "Unlock Swedish flip-card study screen for the Core 3,000 words deck",
     },
   },
   {

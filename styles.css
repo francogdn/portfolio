@@ -369,6 +369,10 @@ svg {
   object-fit: cover;
 }
 
+#unlock-swedish .project-media img {
+  object-position: top center;
+}
+
 .project-media object {
   pointer-events: none;
   background: #dfe7ea;
