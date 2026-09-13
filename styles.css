@@ -362,11 +362,17 @@ svg {
 }
 
 .project-media img,
-.project-media object {
+.project-media object,
+.project-media video {
   width: 100%;
   height: auto;
   aspect-ratio: 16 / 10;
   object-fit: cover;
+}
+
+.project-media video {
+  display: block;
+  background: #dfe7ea;
 }
 
 #unlock-swedish .project-media img {

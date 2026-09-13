@@ -1,6 +1,39 @@
 /** Portfolio project data. Public descriptions only; no private source links. */
 window.PORTFOLIO_PROJECTS = [
   {
+    id: "desk",
+    name: "Desk",
+    badge: "Personal CRM",
+    tagline:
+      "Personal CRM for contacts, coaching, assets, training, and activity history.",
+    summary:
+      "A modular monolith CRM for relationship and coaching work: contacts, coaching engagements and sessions (including confidential anonymous participants), assets inventory, training operations, and a shared activity timeline.",
+    architecture: [
+      "Modular monolith: Laravel owns domain state, Inertia is the transport, Svelte owns presentation",
+      "Capability modules for contacts, coaching, assets, training, and activities",
+      "Dense master/detail UI with ownership policies and thin controllers over application actions",
+    ],
+    stack: [
+      "Laravel",
+      "PHP",
+      "Inertia",
+      "Svelte",
+      "TypeScript",
+      "Tailwind CSS",
+      "PostgreSQL",
+      "Docker",
+    ],
+    testing: {
+      detail:
+        "Pest feature tests for core CRM flows; Playwright for critical browser paths when present.",
+    },
+    visual: {
+      type: "video",
+      src: "assets/projects/desk-demo.mp4",
+      alt: "Desk personal CRM demo walkthrough",
+    },
+  },
+  {
     id: "agileway-eu",
     name: "Agile Way: Course booking",
     badge: "Live booking",

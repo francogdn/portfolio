@@ -69,6 +69,18 @@
       img.alt = project.visual.alt;
       img.loading = "lazy";
       frame.append(img);
+    } else if (project.visual.type === "video") {
+      const video = document.createElement("video");
+      video.src = project.visual.src;
+      video.setAttribute("aria-label", project.visual.alt);
+      video.autoplay = true;
+      video.muted = true;
+      video.loop = true;
+      video.playsInline = true;
+      video.setAttribute("playsinline", "");
+      video.preload = "metadata";
+      video.disablePictureInPicture = true;
+      frame.append(video);
     } else {
       const obj = document.createElement("object");
       obj.type = "image/svg+xml";
