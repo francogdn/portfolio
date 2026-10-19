@@ -7,25 +7,28 @@ window.PORTFOLIO_PROJECTS = [
     tagline:
       "Personal CRM for contacts, coaching, assets, training, and activity history.",
     summary:
-      "A modular monolith CRM for relationship and coaching work: contacts, coaching engagements and sessions (including confidential anonymous participants), assets inventory, training operations, and a shared activity timeline.",
+      "A capability-oriented modular monolith CRM for relationship and coaching work: contacts, coaching engagements and sessions (including confidential anonymous participants), assets inventory, training operations, and a shared activity timeline. Spring Boot serves a REST/JSON API; a Svelte SPA handles presentation.",
     architecture: [
-      "Modular monolith: Laravel owns domain state, Inertia is the transport, Svelte owns presentation",
-      "Capability modules for contacts, coaching, assets, training, and activities",
-      "Dense master/detail UI with ownership policies and thin controllers over application actions",
+      "Modular monolith on Spring Boot: capability modules for contacts, coaching, assets, training, and activities — no microservices or event-driven infrastructure by default",
+      "REST/JSON API under /api with OpenAPI docs; Spring Security sessions and secure cookies",
+      "Svelte 5 SPA (Vite, Tailwind, sv-router) talks to the API; JPA/Hibernate + Flyway on PostgreSQL",
     ],
     stack: [
-      "Laravel",
-      "PHP",
-      "Inertia",
+      "Spring Boot",
+      "Java 25",
+      "Maven",
+      "Spring Data JPA",
+      "Flyway",
+      "PostgreSQL",
       "Svelte",
       "TypeScript",
+      "Vite",
       "Tailwind CSS",
-      "PostgreSQL",
-      "Docker",
+      "OpenAPI",
     ],
     testing: {
       detail:
-        "Pest feature tests for core CRM flows; Playwright for critical browser paths when present.",
+        "Spring Boot integration and API tests with H2; Playwright browser E2E for critical CRM flows.",
     },
     visual: {
       type: "video",
