@@ -5,13 +5,13 @@ window.PORTFOLIO_PROJECTS = [
     name: "Desk",
     badge: "Personal CRM",
     tagline:
-      "Personal CRM for contacts, coaching, assets, training, and activity history.",
+      "Personal CRM for coaching relationships, sessions, and related operations.",
     summary:
-      "A capability-oriented modular monolith CRM for relationship and coaching work: contacts, coaching engagements and sessions (including confidential anonymous participants), assets inventory, training operations, and a shared activity timeline. Spring Boot serves a REST/JSON API; a Svelte SPA handles presentation.",
+      "Modular Spring Boot + Svelte CRM for coaching work: contacts, engagements (including confidential participants), assets, training ops, and a shared activity timeline. API-first so the UI stays a thin client.",
     architecture: [
-      "Modular monolith on Spring Boot: capability modules for contacts, coaching, assets, training, and activities — no microservices or event-driven infrastructure by default",
-      "REST/JSON API under /api with OpenAPI docs; Spring Security sessions and secure cookies",
-      "Svelte 5 SPA (Vite, Tailwind, sv-router) talks to the API; JPA/Hibernate + Flyway on PostgreSQL",
+      "Modular monolith by capability (contacts, coaching, assets, training, activities), not microservices",
+      "Session-secured REST API with OpenAPI; PostgreSQL via JPA and Flyway",
+      "Svelte 5 SPA as the presentation layer over that API",
     ],
     stack: [
       "Spring Boot",
@@ -40,19 +40,20 @@ window.PORTFOLIO_PROJECTS = [
     id: "agileway-eu",
     name: "Agile Way: Course booking",
     badge: "Live booking",
-    tagline: "Training calendar, checkout, and admin for Agile Way courses.",
+    tagline:
+      "Public course calendar with seat-aware checkout and an operator portal.",
     summary:
-      "Full-stack booking experience: public course discovery, seat-aware checkout, transactional email, and an operator portal for courses and reservations.",
+      "End-to-end booking for Agile Way trainings: discovery, paid checkout, confirmation email, and admin tools for courses and reservations, built as one SvelteKit product in production at agileway.eu.",
     liveUrl: "https://www.agileway.eu/",
     architecture: [
-      "SvelteKit app serves public and admin surfaces from one codebase",
-      "Hosted checkout with webhooks for payments and seat updates",
-      "Soft-delete archival for courses and bookings",
+      "One SvelteKit codebase for public booking and admin so seat inventory and payments stay consistent",
+      "Hosted checkout with webhooks that confirm payment and update remaining seats",
+      "Operator workflows for courses and reservations without a separate admin stack",
     ],
     stack: ["SvelteKit", "TypeScript", "Tailwind CSS", "Docker"],
     testing: {
       detail:
-        "Unit, integration & e2e: Vitest suites plus Playwright coverage across booking and admin flows.",
+        "Vitest suites plus Playwright coverage across booking and admin flows.",
     },
     visual: {
       type: "image",
@@ -64,19 +65,19 @@ window.PORTFOLIO_PROJECTS = [
     id: "agileway-it",
     name: "Agile Way: Site & CMS",
     badge: "Marketing CMS",
-    tagline: "Italian marketing site, blog, and content admin for Agile Way.",
+    tagline: "Italian marketing site and content admin for Agile Way.",
     summary:
-      "Public pages and Markdown-driven blog paired with an authenticated CMS for homepage content, legal pages, media, and settings.",
+      "SSR marketing site and blog with an authenticated CMS so non-engineers can update homepage, legal pages, media, and settings without redeploys.",
     liveUrl: "https://www.agileway.it/",
     architecture: [
-      "SvelteKit SSR for public content with an authenticated CMS portal",
-      "File-based blog content alongside editable CMS sections",
-      "Optional checkout integration for related learning products",
+      "SvelteKit SSR for public pages; authenticated portal for editorial edits",
+      "Markdown blog content alongside structured CMS sections",
+      "Same product family as booking and assess: shared brand surface, separate operational concerns",
     ],
     stack: ["SvelteKit", "TypeScript", "Tailwind CSS", "Docker"],
     testing: {
       detail:
-        "Unit, integration & e2e: Vitest unit/integration tests and Playwright e2e for public and admin paths.",
+        "Vitest unit and integration tests; Playwright e2e for public and admin paths.",
     },
     visual: {
       type: "image",
@@ -88,19 +89,21 @@ window.PORTFOLIO_PROJECTS = [
     id: "agileway-assess",
     name: "Agile Way Assess",
     badge: "Quiz engine",
-    tagline: "Self-hosted quiz engine with a free demo and a paid Stripe edition.",
+    tagline:
+      "Self-hosted quiz engine with a free practice demo and Stripe-gated full access.",
     summary:
-      "Composable quizzes and parent assessments with scored attempts for guest or authenticated learners. A free practice version is public; the full product sits behind a Stripe paywall.",
-    liveUrl: "https://www.agileway.it/simulatore/psmi-gratis/simulatore-esame-psmi-demo",
+      "Composable assessments for Scrum exam practice: scored attempts for guests or signed-in learners, a free public demo, and paid unlock after checkout, tied to Agile Way identity.",
+    liveUrl:
+      "https://www.agileway.it/simulatore/psmi-gratis/simulatore-esame-psmi-demo",
     architecture: [
-      "JWT-gated access aligned with the main Agile Way identity cookies",
-      "Quiz / mode / parent composition model for multi-part assessments",
+      "Access gated with Agile Way auth so paid quizzes stay tied to the main account model",
+      "Quiz, mode, and parent composition for multi-part assessments",
       "Free demo path plus paid access unlocked after Stripe checkout",
     ],
     stack: ["SvelteKit", "TypeScript", "Tailwind CSS", "Docker", "Stripe"],
     testing: {
       detail:
-        "Unit, integration & e2e: Focused Vitest coverage for quiz/auth logic plus Playwright e2e.",
+        "Focused Vitest coverage for quiz and auth logic plus Playwright e2e.",
     },
     visual: {
       type: "image",
@@ -112,19 +115,19 @@ window.PORTFOLIO_PROJECTS = [
     id: "aw-invoices",
     name: "Agile Way invoicing system",
     badge: "Invoice PDFs",
-    tagline: "CLI that turns checkout payments into custom invoice PDFs.",
+    tagline:
+      "Operator CLI that turns Stripe Checkout payments into VAT-aware invoice PDFs.",
     summary:
-      "Reads payment data from Stripe Checkout sessions and generates invoice or credit-note PDFs, with optional email delivery for operators. EUR invoices use ECB reference rates for SEK conversion and VAT disclosure.",
+      "Fetches checkout payment data, renders invoice or credit-note PDFs with EUR→SEK conversion via ECB rates and VAT disclosure, then delivers by file or email for operators.",
     architecture: [
-      "Go CLI pipeline: fetch, map, render, deliver",
+      "Go CLI pipeline: fetch Stripe sessions, map domain fields, render PDF, deliver",
       "ECB reference rates for EUR→SEK conversion on invoice disclosures",
-      "Local operational state with a retention policy",
-      "File and email delivery modes; refunds originate elsewhere and are reflected on credit notes",
+      "File and email delivery; credit notes reflect refunds that originate elsewhere",
     ],
     stack: ["Go", "Cobra", "HTML/PDF rendering", "Docker"],
     testing: {
       detail:
-        "Unit & integration: Broad go test coverage across mapping, render, storage, and integration-tagged suites.",
+        "Broad go test coverage across mapping, render, storage, and integration-tagged suites.",
     },
     visual: {
       type: "diagram",
@@ -136,12 +139,13 @@ window.PORTFOLIO_PROJECTS = [
     id: "content-intelligence",
     name: "Content Intelligence",
     badge: "Editorial ops",
-    tagline: "Per-brand knowledge, editorial workspace, and approval-gated publishing.",
+    tagline:
+      "Brand knowledge, editorial workspace, and approval-gated publishing for agents and operators.",
     summary:
-      "Execution layer for content operations: brand knowledge bases, briefs and drafts, SEO packages, calendar, and publishing destinations. A web UI and MCP share one backend so agents can write while operators review; live publishing is never automatic.",
+      "Content ops layer where agents draft against per-brand knowledge while operators review briefs, SEO packages, and calendar work. Live publishing is never automatic.",
     architecture: [
-      "Brand knowledge stored on disk so it can move to a shared volume",
-      "REST UI and MCP clients share one SQLite-backed service",
+      "One backend shared by a web UI and MCP so agents write while humans approve",
+      "Brand knowledge on disk so it can move to a shared volume later",
       "Draft-first destinations: git markdown, WordPress, and local files",
     ],
     stack: ["Python", "FastAPI", "SQLite", "React", "Vite", "MCP", "Docker"],
@@ -158,16 +162,16 @@ window.PORTFOLIO_PROJECTS = [
     badge: "Filing alerts",
     tagline: "Watchlist matching for newly published trademark filings.",
     summary:
-      "Pulls filings from trademark providers, scores similarity against configured brands, and surfaces matches in a dashboard with alert hooks.",
+      "Ingests filings from trademark providers, scores similarity against configured brands, and surfaces only the matches that matter, with dashboard review and alert hooks.",
     architecture: [
-      "Provider adapters feed a normalize and similarity pipeline",
-      "Only matching records are persisted, which keeps storage small",
-      "CLI for scheduled runs; server-rendered HTML dashboard for review",
+      "Provider adapters feed a normalize-and-similarity pipeline",
+      "Only matching records are persisted, which keeps storage small and review focused",
+      "CLI for scheduled runs; server-rendered HTML dashboard for operators",
     ],
     stack: ["Go", "HTML dashboard", "SMTP alerts"],
     testing: {
       detail:
-        "Unit tests: Similarity, normalization, filters, config, and provider-focused Go tests.",
+        "Go unit tests for similarity, normalization, filters, config, and providers.",
     },
     visual: {
       type: "diagram",
@@ -179,18 +183,27 @@ window.PORTFOLIO_PROJECTS = [
     id: "hermes-dashboard",
     name: "AI Harness Operations Dashboard",
     badge: "AI fleet ops",
-    tagline: "Health and activity dashboard for my personal 8-bot AI fleet run from Telegram.",
+    tagline:
+      "Health and activity dashboard for an eight-bot AI fleet controlled from Telegram.",
     summary:
-      "Ops dashboard to check health status and current activities across my AI fleet. My fleet is eight bots, each fully controlled from Telegram chats. A collector posts redacted telemetry to an ingest API (the only database writer) while a React UI reads operational state.",
+      "Read-only ops view across a personal AI fleet: a collector posts redacted telemetry to an ingest API (the only writer) while a React UI shows health and current activity.",
     architecture: [
       "Edge collector gathers allowlisted, redacted telemetry on a schedule",
       "API owns all writes; dashboard is read-only via REST",
-      "Compose-based deploy for API and UI as separate services",
+      "API and UI deploy as separate Compose services",
     ],
-    stack: ["FastAPI", "SQLAlchemy", "Alembic", "React", "TypeScript", "Vite", "TanStack Query"],
+    stack: [
+      "FastAPI",
+      "SQLAlchemy",
+      "Alembic",
+      "React",
+      "TypeScript",
+      "Vite",
+      "TanStack Query",
+    ],
     testing: {
       detail:
-        "API + UI tests: pytest for ingest/read surfaces; component and page tests on the React app.",
+        "pytest for ingest and read surfaces; component and page tests on the React app.",
     },
     visual: {
       type: "image",
@@ -202,18 +215,18 @@ window.PORTFOLIO_PROJECTS = [
     id: "homelab-ansible",
     name: "Homelab Ansible",
     badge: "Homelab control",
-    tagline: "Ansible control layout for Proxmox and homelab health reporting.",
+    tagline: "Ansible layout for Proxmox fleet health and readable multi-host reports.",
     summary:
-      "Inventory, roles, and playbooks with custom filters and a stdout callback that prints readable multi-host health summaries.",
+      "Inventory, roles, and playbooks that turn Proxmox and lab host checks into clear multi-host health summaries, built for reliable day-two operations rather than one-off scripts.",
     architecture: [
-      "Control-node layout: inventory, roles, playbooks, plugins",
+      "Control-node layout: inventory, roles, playbooks, and plugins in one place",
       "Custom filters for human-readable uptime and storage sizes",
-      "homelab_report callback formats structured health output",
+      "Stdout callback that formats structured health output across hosts",
     ],
     stack: ["Ansible", "Python plugins", "Proxmox-oriented inventory"],
     testing: {
       detail:
-        "Plugin tests: pytest coverage for filters, callback formatting, and report templates.",
+        "pytest coverage for filters, callback formatting, and report templates.",
     },
     visual: {
       type: "diagram",
@@ -225,13 +238,14 @@ window.PORTFOLIO_PROJECTS = [
     id: "restore-assistant",
     name: "Restore Assistant",
     badge: "Backup restore",
-    tagline: "Guided TUI for restoring rclone and Proxmox backups.",
+    tagline:
+      "Guided restore for rclone and Proxmox backups, safer than ad-hoc restore commands.",
     summary:
-      "Menu-driven Bash tool that browses remotes and restores generic archives or Proxmox VM/CT backups with progress feedback.",
+      "Menu-driven Bash tool that browses remotes and walks operators through file or Proxmox VM/CT restores with progress feedback, reducing risky one-off restore commands.",
     architecture: [
-      "dialog/whiptail menus over rclone remotes (including encrypted)",
-      "Branching flows for file restores vs Proxmox qmrestore/pct paths",
-      "Host detection to enable Proxmox-specific actions when available",
+      "Guided menus over rclone remotes, including encrypted ones",
+      "Separate flows for generic archives vs Proxmox qmrestore and pct paths",
+      "Host detection enables Proxmox-specific actions only when available",
     ],
     stack: ["Bash", "rclone", "dialog / whiptail"],
     testing: null,
@@ -245,18 +259,27 @@ window.PORTFOLIO_PROJECTS = [
     id: "jobhunter",
     name: "Jobhunter",
     badge: "Vacancy sync",
-    tagline: "Homelab vacancy sync with HTMX admin and MCP tooling.",
+    tagline:
+      "Local vacancy sync with an operator UI and MCP tools for agents.",
     summary:
-      "Scrapes broker portals into a local store, exposes an operator UI, and serves vacancy/CV helpers to agents over MCP.",
+      "Scrapes broker portals into a local store, gives operators an HTMX admin for review, and exposes vacancy and CV helpers to agents over MCP.",
     architecture: [
       "Playwright-assisted scrape using an operator login session",
-      "HTMX admin for brokers and review",
-      "MCP server (stdio and HTTP) for agent-readable vacancy tools",
+      "HTMX admin for brokers, settings, and review",
+      "MCP server (stdio and HTTP) so agents can query vacancies and CV helpers",
     ],
-    stack: ["Python", "FastAPI", "SQLAlchemy", "HTMX", "Playwright", "MCP", "Docker"],
+    stack: [
+      "Python",
+      "FastAPI",
+      "SQLAlchemy",
+      "HTMX",
+      "Playwright",
+      "MCP",
+      "Docker",
+    ],
     testing: {
       detail:
-        "Extensive pytest suite: Auth, CV pipeline, scraping helpers, and service tests under a dedicated tests/ tree.",
+        "Extensive pytest suite for auth, CV pipeline, scraping helpers, and services.",
     },
     visual: {
       type: "image",
@@ -268,13 +291,13 @@ window.PORTFOLIO_PROJECTS = [
     id: "lab-automenu",
     name: "Lab Automenu",
     badge: "Service launcher",
-    tagline: "Lightweight browser launcher for homelab services.",
+    tagline: "Browser launcher for common homelab service endpoints.",
     summary:
-      "A JSON-driven HTML menu served from a tiny PHP container so operators can open common lab endpoints quickly.",
+      "JSON-driven HTML menu in a tiny PHP container so operators can open frequent lab endpoints without hunting bookmarks or ports.",
     architecture: [
       "Static HTML UI reads a local menu.json catalog",
-      "Optional PHP endpoint persists menu edits",
-      "Packaged as a small Docker image with PHP built-in server",
+      "Small PHP endpoint persists menu edits when needed",
+      "Packaged as a minimal Docker image for quick local deploy",
     ],
     stack: ["HTML", "JSON", "PHP", "Docker"],
     testing: null,
@@ -290,16 +313,16 @@ window.PORTFOLIO_PROJECTS = [
     badge: "Encrypted backup",
     tagline: "TUI and CLI for encrypted Google account backups.",
     summary:
-      "Orchestrates Drive, Gmail, and Takeout-oriented backups through an isolated rclone config with encryption before upload.",
+      "Orchestrates Drive, Gmail, and Takeout-oriented backups through an isolated rclone config, encrypting payloads before they leave the machine.",
     architecture: [
-      "Bubble Tea TUI plus headless CLI for the same backup core",
+      "Bubble Tea TUI plus headless CLI share the same backup core",
       "Isolated rclone configuration that does not touch the user global config",
-      "crypt backend encrypts payloads before remote storage",
+      "Encryption before remote storage so backups stay protected at rest",
     ],
     stack: ["Go", "Bubble Tea", "rclone", "crypt"],
     testing: {
       detail:
-        "Unit tests: Backup, config, rate-limit, and TUI screen tests with dedicated test helpers.",
+        "Unit tests for backup, config, rate-limit, and TUI screens with dedicated helpers.",
     },
     visual: {
       type: "image",
@@ -311,12 +334,13 @@ window.PORTFOLIO_PROJECTS = [
     id: "unlock-swedish",
     name: "Unlock Swedish",
     badge: "Study PWA",
-    tagline: "A web-first PWA for studying the 3,000 most frequent Swedish lemmas.",
+    tagline:
+      "Offline-capable PWA for studying the 3,000 most frequent Swedish lemmas.",
     summary:
-      "Flip-card study flow with bundled pronunciation audio, local progress tracking, and an offline-capable lexicon loaded in the browser.",
+      "Flip-card study flow with pronunciation audio and on-device progress. No backend required; installable as a Progressive Web App.",
     architecture: [
       "Build-time pipeline turns open lexicon sources into a SQLite database",
-      "Browser runtime reads the DB via sql.js with no backend required",
+      "Browser runtime reads the DB via sql.js with no server dependency",
       "Progress stays on-device; installable as a Progressive Web App",
     ],
     stack: ["React", "TypeScript", "Vite", "SQLite / sql.js", "PWA"],
@@ -331,17 +355,18 @@ window.PORTFOLIO_PROJECTS = [
     id: "vatconverter",
     name: "VAT Converter",
     badge: "Rate jobs",
-    tagline: "Legacy EUR/SEK conversion service for earlier invoicing workflows.",
+    tagline:
+      "Scheduled EUR/SEK conversion service that fed earlier invoicing workflows.",
     summary:
-      "Legacy production system that handled EUR/SEK conversion for invoicing before the current Agile Way invoicing system. Scheduled jobs pulled ECB reference rates, cached them, and processed invoice-related currency conversion.",
+      "Production Spring Boot service that pulled ECB reference rates on a schedule, cached them, and converted invoice-related amounts, later superseded by the Go invoicing CLI.",
     architecture: [
-      "Spring Boot application with scheduled rate and invoice jobs",
-      "ECB rate fetch with Redis-backed caching",
+      "Spring Boot jobs for rate fetch and invoice-related conversion",
+      "ECB rate fetch with Redis-backed caching for reliable reuse",
       "Downstream processing for converted invoice artifacts",
     ],
     stack: ["Java 21", "Spring Boot", "Redis", "Maven"],
     testing: {
-      detail: "JUnit: Service and utility tests for ECB handling and currency helpers.",
+      detail: "JUnit coverage for ECB handling and currency helpers.",
     },
     visual: {
       type: "diagram",
